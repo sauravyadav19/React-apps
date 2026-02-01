@@ -7,4 +7,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // The "root" element selected by us, we are now asking it to render a component called "Video" in it.
 // The `Video` is simply a piece of code that returns a jsx element (basically a js + html kinnda code)
 // just like we pass parameter to a function we pass something called props to our jsx components, help us to make it dynamic.
-root.render(<Video title="React Props" description = "tutorial to use props in React" />);
+root .render(
+  <div>
+    <Video title="Modern India" description = "Understanding the making of modern India"/>
+    <Video title="World After Covid-19" description= "Dr. Grace talks about life after deadly pandemic" />
+    <Video title = "The Picture of Dorian Gray" description = "Oscar wilde's most loved book, understanding it"/>
+    <Video title = "Detox from Social Media" description = "Social Media experts talk about to get detox form social media"/>
+    <Video title = "Spotify : A Case study" description = "Analayzing the growth of Spotify"/>
+  </div>
+)
