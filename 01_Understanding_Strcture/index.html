@@ -1,0 +1,28 @@
+<!-- What's Happening here? -->
+<!-- 
+=>We are trying to create front end of our app using React.
+=> React acts a middleman for Manipulating DOM rather than us having to manually do it they way we do it in vanilla Javascript
+=> We have added CDN of React here in order to get functionality of the React without having to install anything as of yet.
+=> in our "script.js" we have selected our HTML's root element by id to make it root and then in that root we have rendered a H1
+
+How do we run this?
+ => I simply run a server using python3 -m htttp.server <portName>.
+=> or you can simply open index.html in your browser.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First React Page</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="script.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+
