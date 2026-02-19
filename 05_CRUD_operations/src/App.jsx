@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreationForm from "./CreationForm";
 import Post from "./Post";
 
 function App(){
 
     // This is data strcture holding all the post
-    const [posts, setPost] = useState([]);
+    // We are using localstorage to maintain some kind of persistence
+    // Here, if some post are already in localstorage in the browser we are reterving that posts
+    // and initallising it as the intial value of the posts array, else we are simplying returning an empty array
+    const [posts, setPost] = useState(()=>{
+        const previouslyStoredPosts = localStorage.getItem('posts');
+        return previouslyStoredPosts ? JSON.parse(previouslyStoredPosts) : []
+    });
 
     // We need to explicitly create this function, because we have two components here
     // => CreationForm: Responsible for creating a post
@@ -20,8 +26,25 @@ function App(){
     // posts array, we are then passing this CreationForm and we call it whenever a new post is added to the posts array.
 
     function addPost(title,content){
-        setPost(prev=>([...prev,{title,content}]))
+        setPost(prev=>([{title,content},...prev]))
     }
+
+    // We are using useEffect to store the new value of the post into the localstorage
+    // just to recall, useEffect is called whenever the dependicies array undergo state change
+    // in this case our posts array, whenever there is a state change it is called.
+    // we are storing the new value of the posts into the localstorage.
+    /*  
+        function addPost(title,content){
+            setPost(prev =>([{title,content},...prev]))
+            locaStorage.setItem("posts", JSON.stringify(posts));
+        }
+    */
+   // The above function would have NOT worked properly. Why?
+   // setPost() does not instantly changes the value of posts, think of it like a async kinda function; it takes a sometime to resolve
+
+    useEffect(()=>{
+        localStorage.setItem("posts",JSON.stringify(posts));
+    },[posts])
 
     return (<div>
     {/* form to Create new Post */}
