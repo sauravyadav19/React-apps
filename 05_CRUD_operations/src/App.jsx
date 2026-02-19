@@ -29,6 +29,18 @@ function App(){
         setPost(prev=>([{title,content},...prev]))
     }
 
+    // Just like we are passing addPost to our form 
+    // We are passing removePost to our Post component so that we can delete each post if we want to
+    function removePost(key){
+        const newPosts = posts.filter((element,index)=>{
+            if(index === key){
+                return false;
+            }
+            return element;
+        })
+        setPost(newPosts);
+    }
+
     // We are using useEffect to store the new value of the post into the localstorage
     // just to recall, useEffect is called whenever the dependicies array undergo state change
     // in this case our posts array, whenever there is a state change it is called.
@@ -52,10 +64,10 @@ function App(){
         {/* Rendering all the post */}
         <div>
             {posts.map((post, idx)=>(
-                <Post key = {idx} title = {post.title} content = {post.content} />
+                // Passing index explicitly to the component so we can remove the post when button is clicked
+                <Post key = {idx} title = {post.title} content = {post.content} index = {idx} removePost = {removePost} />
         ))}
-        </div>  
-        
+        </div>     
     </div>)
 
 }
