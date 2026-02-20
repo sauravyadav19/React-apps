@@ -26,20 +26,45 @@ function App(){
     // posts array, we are then passing this CreationForm and we call it whenever a new post is added to the posts array.
 
     function addPost(title,content){
-        setPost(prev=>([{title,content},...prev]))
+        // we are now not relaying on index rather we are now adding another property called id which gives a unique id everytime
+        // this is better than indices system and much more reilabe,especially now that we could delete a post.
+        setPost(prev=>([{id: crypto.randomUUID(),title,content},...prev]))
     }
 
     // Just like we are passing addPost to our form 
     // We are passing removePost to our Post component so that we can delete each post if we want to
     function removePost(key){
-        const newPosts = posts.filter((element,index)=>{
-            if(index === key){
+        const newPosts = posts.filter((post)=>{
+            if(post.id === key){
                 return false;
             }
-            return element;
+            return post;
         })
         setPost(newPosts);
     }
+
+    // Just for the same reason we have passed addPost to the formCreation we would be passing editPost to Post component
+    // App.jsx is the parent and owner of post and all that stuff.
+    // In here we are recreating the array mannually, we are updating the element whose id matches with the key.
+    function editPost(key,title,content){
+
+        let updatePosts = [];
+
+        setPost((prev)=>{
+            for(let i = 0; i< prev.length; i++){
+
+                if(key === prev[i].id){
+                    updatePosts.push({id:prev[i].id,title,content});
+                    continue;
+                }
+                updatePosts.push(prev[i]);
+
+            }
+            return updatePosts;
+
+        })
+    }
+
 
     // We are using useEffect to store the new value of the post into the localstorage
     // just to recall, useEffect is called whenever the dependicies array undergo state change
@@ -64,8 +89,9 @@ function App(){
         {/* Rendering all the post */}
         <div>
             {posts.map((post, idx)=>(
-                // Passing index explicitly to the component so we can remove the post when button is clicked
-                <Post key = {idx} title = {post.title} content = {post.content} index = {idx} removePost = {removePost} />
+                // Passing id as index so we can uniquely identify and perform deletion, updation of a post
+                // We are passing removePost and editPost to it so we can perform those action with same architeture flow as waterfall direction.
+                <Post key = {post.id} title = {post.title} content = {post.content} index = {post.id} removePost = {removePost} editPost = {editPost} />
         ))}
         </div>     
     </div>)
