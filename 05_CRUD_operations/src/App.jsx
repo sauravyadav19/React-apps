@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CreationForm from "./CreationForm";
 import Post from "./Post";
+import "./app.css"
 
 function App(){
 
@@ -87,7 +88,7 @@ function App(){
     {/* form to Create new Post */}
         <CreationForm addPost={addPost}/>
         {/* Rendering all the post */}
-        <div>
+        <div id="allPostContainer">
             {posts.map((post, idx)=>(
                 // Passing id as index so we can uniquely identify and perform deletion, updation of a post
                 // We are passing removePost and editPost to it so we can perform those action with same architeture flow as waterfall direction.

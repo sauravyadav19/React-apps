@@ -1,0 +1,186 @@
+/* post.css */
+
+/* ========================= */
+/* Shared Card Structure     */
+/* ========================= */
+
+#postReadMode,
+#postEditMode {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e6e8eb;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+
+    display: flex;
+    flex-direction: column;
+    height: 260px; /* Fixed card height */
+    position: relative;
+    transition: 0.2s ease;
+}
+
+#postReadMode:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* ========================= */
+/* READ MODE                 */
+/* ========================= */
+
+#postReadModeTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Title */
+#title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    flex-shrink: 0;
+}
+
+/* Scrollable Content */
+#content {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* Scrollbar Styling */
+#content::-webkit-scrollbar {
+    width: 6px;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 6px;
+}
+
+/* Delete Button */
+#postReadModeDeleteButtonContainer {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+#postDeleteButton {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#postDeleteButton:hover {
+    background: #dc2626;
+}
+
+/* ========================= */
+/* EDIT MODE                 */
+/* ========================= */
+
+/* ========================= */
+/* EDIT MODE                 */
+/* ========================= */
+
+#postEditMode {
+    display: flex;
+    flex-direction: column;
+    height: 260px;
+    gap: 14px;
+}
+
+/* Input Container */
+#postEditModeTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Title Input */
+#postEditModeTitle {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    transition: 0.2s ease;
+}
+
+#postEditModeTitle:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+/* Content Textarea */
+#postEditModeContent {
+    flex: 1;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    transition: 0.2s ease;
+    overflow-y: auto;
+}
+
+#postEditModeContent:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+/* Action Bar */
+#postEditModeButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 6px;
+    border-top: 1px solid #f0f2f5;
+}
+
+/* Buttons */
+#postEditModeButtonContainer button {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Save */
+#postEditModeButtonContainer button:first-child {
+    background: #6366f1;
+    color: white;
+}
+
+#postEditModeButtonContainer button:first-child:hover {
+    background: #4f46e5;
+}
+
+/* Discard */
+#postEditModeButtonContainer button:last-child {
+    background: transparent;
+    color: #6b7280;
+}
+
+#postEditModeButtonContainer button:last-child:hover {
+    background: #f3f4f6;
+}

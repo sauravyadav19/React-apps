@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./post.css"
 function Post(props){ 
 
     // These variable are used to handle in case the user tries to edit a Post
@@ -40,20 +40,28 @@ function Post(props){
     // Edit mode
     if(isBeingEdited){
         return(
-            <div style={{border:'solid red 2px'}} onDoubleClick={doubleClickHandler}>
-                <input type="text" value={tempTitle} onChange={(event=>{onChangeTitle(event)})}/>
-                <textarea value={tempContent} onChange={(event)=>{onChangeContent(event)}}/>
-                <button onClick={editHandler}>Save</button>
-                <button onClick={discardHandler}>Discard</button>
+            <div id= "postEditMode" onDoubleClick={doubleClickHandler}>
+                <div id="postEditModeTextContainer">
+                    <input id = "postEditModeTitle" type="text" value={tempTitle} onChange={(event=>{onChangeTitle(event)})}/>
+                    <textarea id = "postEditModeContent" value={tempContent} onChange={(event)=>{onChangeContent(event)}}/>
+                </div>
+                <div id="postEditModeButtonContainer">
+                    <button onClick={editHandler}>Save</button>
+                    <button onClick={discardHandler}>Discard</button>
+                </div>
             </div>
         )
         // Regular Mode
     }else{
-        return (<div style={{border:"solid green 2px"}} onDoubleClick = {doubleClickHandler}>
-            <h2>{props.title}</h2>
-            <p>{props.content}</p>
+        return (<div id ="postReadMode"onDoubleClick = {doubleClickHandler}>
+            <div id= "postReadModeTextContainer">
+                <span id="title">{props.title}</span>
+                <span id="content">{props.content}</span>
+            </div>
             {/* passing the index to the removePost function, thus telling react which component to delete */}
-            <button onClick={()=>{props.removePost(props.index)}}>Delete</button>
+            <div id="postReadModeDeleteButtonContainer">
+                <button id="postDeleteButton" onClick={()=>{props.removePost(props.index)}}>X</button>
+            </div>
         </div>)
     }
 
