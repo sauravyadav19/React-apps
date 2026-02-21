@@ -21,3 +21,33 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
+
+/* ========================= */
+/* CREATE NEW NOTE BUTTON    */
+/* ========================= */
+
+#CreateNewPostButton {
+    display: block;
+    margin: 50px auto 20px auto;
+    padding: 14px 26px;
+
+    background: #6366f1;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 14px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+
+    box-shadow: 0 8px 24px rgba(99,102,241,0.25);
+}
+
+#CreateNewPostButton:hover {
+    background: #4f46e5;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(99,102,241,0.35);
+}

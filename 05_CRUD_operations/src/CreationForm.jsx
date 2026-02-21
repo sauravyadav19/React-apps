@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./formcreation.css"
 
 
-function CreationForm({addPost}){
+function CreationForm({addPost,hideForm}){
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     
@@ -25,6 +25,7 @@ function CreationForm({addPost}){
 
     return (
         <div id = "rootPostCreationContainer">
+            <button id = "closeFromButton" onClick={hideForm}>X</button>
             <form id="postCreationForm" onSubmit={(event)=>{formSubmitHandler(event)}}>
                 <div id = "titleContainer">
                     <label htmlFor="title">Title</label>

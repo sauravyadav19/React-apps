@@ -65,8 +65,12 @@ function App(){
 
         })
     }
+    const [showCreateNewPostButton, setShowCreateNewPostButton] = useState(false);
 
-
+    function showCreationButtonToggler(){
+        setShowCreateNewPostButton(prev => !prev);
+    }
+    
     // We are using useEffect to store the new value of the post into the localstorage
     // just to recall, useEffect is called whenever the dependicies array undergo state change
     // in this case our posts array, whenever there is a state change it is called.
@@ -86,7 +90,7 @@ function App(){
 
     return (<div>
     {/* form to Create new Post */}
-        <CreationForm addPost={addPost}/>
+        {showCreateNewPostButton ? <CreationForm addPost={addPost} hideForm = {showCreationButtonToggler}/> : <button id= "CreateNewPostButton" onClick={showCreationButtonToggler}>Create + </button>}
         {/* Rendering all the post */}
         <div id="allPostContainer">
             {posts.map((post, idx)=>(
