@@ -90,7 +90,7 @@ function App(){
 
     return (<div>
     {/* form to Create new Post */}
-        {showCreateNewPostButton ? <CreationForm addPost={addPost} hideForm = {showCreationButtonToggler}/> : <button id= "CreateNewPostButton" onClick={showCreationButtonToggler}>Create + </button>}
+        {showCreateNewPostButton ? <CreationForm addPost={addPost} hideForm = {showCreationButtonToggler}/> : <button id= "CreateNewPostButton" onClick={showCreationButtonToggler}>+ Create New </button>}
         {/* Rendering all the post */}
         <div id="allPostContainer">
             {posts.map((post, idx)=>(

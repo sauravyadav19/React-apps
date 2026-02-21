@@ -50,7 +50,7 @@ function CreationForm({addPost,hideForm}){
                     />
                 </div>
                 <div id = "buttonContainer">
-                    <button>Submit</button>
+                    <button>Create</button>
                 </div>
             </form>
         </div>

@@ -52,6 +52,7 @@
 
     overflow-y: auto;
     padding-right: 6px;
+    white-space: pre-wrap;
 }
 
 /* Scrollbar Styling */
@@ -167,20 +168,22 @@
 
 /* Save */
 #postEditModeButtonContainer button:first-child {
-    background: #6366f1;
+    background: rgb(9, 159, 9);
     color: white;
 }
 
 #postEditModeButtonContainer button:first-child:hover {
-    background: #4f46e5;
+    transform: translateY(-2px);
+    background: green;
 }
 
 /* Discard */
 #postEditModeButtonContainer button:last-child {
-    background: transparent;
-    color: #6b7280;
+    background: rgb(238, 158, 11);
+    color: white;
 }
 
 #postEditModeButtonContainer button:last-child:hover {
-    background: #f3f4f6;
+    background-color: rgb(253, 164, 0);
+    transform: translateY(-2px);
 }

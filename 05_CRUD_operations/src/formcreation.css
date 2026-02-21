@@ -100,9 +100,9 @@
     border-top: 1px solid #f3f4f6;
 }
 
-/* Submit button */
+/* Create button */
 #buttonContainer button {
-    background: #6366f1;
+    background:green;
     color: white;
     padding: 10px 18px;
     border-radius: 10px;
@@ -113,6 +113,6 @@
 }
 
 #buttonContainer button:hover {
-    background: #4f46e5;
+    background: green;
     transform: translateY(-2px);
 }
