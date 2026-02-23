@@ -1,0 +1,5 @@
+In this project we implemented routes using react router dom
+ Steps:
+    -> Wrap your entire App with a React router (here we have used BrowserRouter)
+    ->Create Routes using <Routes/>
+        -> it consist of multiple Routes 
